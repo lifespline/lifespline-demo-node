@@ -4,7 +4,7 @@ Demo dockerizing a `nodejs` app with a `redis` database.
 
 # Getting Started
 
-The demo services a nodejs app with a redis database.
+The demo is a dockerized setup of a frontend (`node`) interacting with a backend (`node+redis`) by saving, editing and deleting data.
 
 # Resources
 
