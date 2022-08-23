@@ -1,37 +1,36 @@
-const express = require('express');
-const redis = require('redis');
+import 'dotenv/config'
+// define and test the API
+import swaggerUi from 'swagger-ui-express'
+import swaggerJsDoc from 'swagger-jsdoc'
+import express, { application } from 'express'
+import redis from 'redis'
+import YAML from 'yamljs'
+import { router } from './routes/router.js'
 
 const PORT = 8080;
 
 const app = express();
-const redisClient = redis.createClient(6379, '127.0.0.1');
-
-(async () => {
-    redisClient.connect();
- })();
-
-redisClient.on('error', (err) => {
-    console.log('Error occured while connecting or accessing redis server');
-});
-
-
 app.use(express.json());
 
-app.get('/', (req,res) => {
-    res.status(200).json({
-        message : "Demo dockerizing a `nodejs` app with a `redis` database."
-    });
+app.use('/demo', router)
 
-    // res = await redisClient.get('customer_name', redis.print);
-
-    // res.then(success => console.log('Writing Property : customer_name')).catch(error => console.log(error));
-});
+const swaggerOptions = {
+    swaggerDefinition: {
+        info: {
+            title: "Dockerize Node Redis Demo",
+            description: "Demo dockerizing a `nodejs` app with a `redis` database.",
+            contact: {
+                name: "Diogo"
+            },
+            servers: ["localhost:8080"]
+        }
+    },
+    apis: ["app.js", "./routes/*.js"]
+}
+const swaggerDocs = swaggerJsDoc(swaggerOptions)
+// const swaggerDocument = YAML.load('api.yaml');
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.listen(PORT, () => {
     console.log(`Server running on PORT ${PORT}`);
 });
-
-
-
-
-
