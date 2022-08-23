@@ -1,5 +1,6 @@
 {
   "name": "dockerizenodedemo",
+  "type": "module",
   "version": "1.0.0",
   "description": "Demo dockerizing a `nodejs` app with a `redis` database.",
   "main": "app.js",
@@ -11,25 +12,21 @@
     "type": "git",
     "url": "git+https://github.com/lifespline/lifespline-demo-node.git"
   },
-  "type": "module",
   "author": "diogo",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lifespline/lifespline-demo-node/issues"
   },
   "homepage": "https://github.com/lifespline/lifespline-demo-node#readme",
-  "dependencies": {
-    "dotenv": "^16.0.1",
-    "express": "^4.18.1",
-    "nodemon": "^2.0.19",
-    "redis": "^4.2.0",
-    "redis-om": "^0.3.6",
-    "swagger-ui-express": "^4.5.0",
-    "yamljs": "^0.3.0"
-  },
   "devDependencies": {
-    "express": "^4.18.1",
-    "redis": "^4.2.0",
-    "redis-om": "^0.3.6"
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "redis": "^4.0.4",
+    "redis-om": "^0.2.0",
+    "swagger-ui-express": "^4.3.0",
+    "yamljs": "^0.3.0"
   }
 }
