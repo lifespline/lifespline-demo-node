@@ -9,3 +9,4 @@ The demo is a dockerized setup of a frontend (`node`) interacting with a backend
 # Resources
 
 + [redis-om](https://redis.io/docs/stack/get-started/tutorials/stack-node/)
++ [Official Tutorial | YouTube](https://www.youtube.com/watch?v=KUfufrwpBkM&t=385s)
