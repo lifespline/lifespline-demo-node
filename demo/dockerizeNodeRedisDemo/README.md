@@ -10,3 +10,4 @@ The demo is a dockerized setup of a frontend (`node`) interacting with a backend
 
 + [redis-om](https://redis.io/docs/stack/get-started/tutorials/stack-node/)
 + [Official Tutorial | YouTube](https://www.youtube.com/watch?v=KUfufrwpBkM&t=385s)
++ [Auto Generate API Documentation | Swagger | YouTube](https://www.youtube.com/watch?v=apouPYPh_as)
