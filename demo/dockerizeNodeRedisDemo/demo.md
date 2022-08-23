@@ -1,4 +1,5 @@
 ```sh
+$ docker build . -t demo_node
 $ docker run --name demo_node -p 0.0.0.0:8080:8080 -d demo_node
 $ docker run --rm -d --name demo_redis -p 127.0.0.1:6379:6379 redis
 $ docker exec -it demo_redis bash
