@@ -6,13 +6,12 @@ import express, { application } from 'express'
 import redis from 'redis'
 import YAML from 'yamljs'
 import { router } from './routes/router.js'
+import { logger } from './utils/logger.js'
 
 const PORT = 8080;
 
 const app = express();
 app.use(express.json());
-
-app.use('/demo', router)
 
 const swaggerOptions = {
     swaggerDefinition: {
@@ -23,14 +22,37 @@ const swaggerOptions = {
                 name: "Diogo"
             },
             servers: ["localhost:8080"]
-        }
+        },
+        components: {
+            bearerAuth: {
+                type: "http",
+                scheme: "bearer",
+                bearerFormat: "JWT"
+            }
+        },
+        security: [{
+            bearerAuth: []
+        }]
     },
-    apis: ["app.js", "./routes/*.js"]
+    apis: ["app.js", "./routes/router.js"]
 }
-const swaggerDocs = swaggerJsDoc(swaggerOptions)
-// const swaggerDocument = YAML.load('api.yaml');
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+const swaggerSpec = swaggerJsDoc(swaggerOptions)
+
+/**
+ * @openapi
+ * /meta/api/docs:
+ *  get:
+ *    description: Returns the swagger documentation
+ *    summary: swagger doc
+ *    tags:
+ *      - meta
+ */
+app.use('/meta/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+// bind router to route 'demo'
+app.use('/demo', router)
+
 
 app.listen(PORT, () => {
-    console.log(`Server running on PORT ${PORT}`);
+    console.log(`App running at 0.0.0.0:${PORT}`);
+    console.log(`Docs available at 0.0.0.0:${PORT}/meta/api/docs`);
 });

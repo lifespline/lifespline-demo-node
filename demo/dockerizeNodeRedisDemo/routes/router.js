@@ -3,21 +3,34 @@ import { exerciseRepository } from "../om/exercise.js";
 export const router = Router();
 
 /**
- * @swagger
- * /exercises:
- *  put:
- *      description: Create a new exercise
- *      responses:
- *          '200':
- *              description: Exercise created successfully
+ * @openapi
+ * /demo:
+ * put:
+ *   description: Create a new exercise
+ *   summary: Create a new exercise
+ *   tags:
+ *     - demo
  */
 router.put('/', async (req, res) => {
     const exercise = await exerciseRepository.createAndSave(req.body)
     res.send(exercise);
 })
-// READ
 
+/**
+ * @openapi
+ * /demo:
+ * get:
+ *   description: Read an exercise
+ *   summary: Read an exercise
+ *   tags:
+ *     - demo
+ */
+router.get('/', async (req, res) => {
+    res.send('test read');
+})
 
 // UPDATE
+router.post('/', async (req, res) => {})
 
 // DELETE
+router.put('/', async (req, res) => {})
