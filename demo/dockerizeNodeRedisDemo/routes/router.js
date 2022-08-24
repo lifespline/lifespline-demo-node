@@ -27,7 +27,9 @@ export const router = Router();
  *          application/json:
  *            schema:
  *                title: exercise
- *
+ *                allOf:
+ *                  - $ref: "#/components/schemas/exercise_id"
+ *                  - $ref: "#/components/schemas/exercise"
  */
 router.put('/', async (req, res) => {
     const exercise = req.body;
