@@ -34,7 +34,7 @@ const swaggerOptions = {
             bearerAuth: []
         }]
     },
-    apis: ["app.js", "./routes/router.js"]
+    apis: ["app.js", "./routes/*.js"]
 }
 const swaggerSpec = swaggerJsDoc(swaggerOptions)
 
