@@ -2,7 +2,38 @@ import { Router } from "express";
 import { exerciseRepository } from "../om/exercise.js";
 export const router = Router();
 
-router.put('/', async (req, res) => {})
+/**
+ * @openapi
+ * /demo:
+ *  put:
+ *    tags:
+ *      - demo
+ *    description: creates a new exercise
+ *    summary: create exercise
+ *    operationId: createExercise
+ *    requestBody:
+ *      description: exercise
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            title: exercise
+ *            allOf:
+ *              - $ref: "#/components/schemas/exercise"
+ *    responses:
+ *      '200':
+ *        description: Exercise created successfully
+ *        content:
+ *          application/json:
+ *            schema:
+ *                title: exercise
+ *
+ */
+router.put('/', async (req, res) => {
+    const exercise = req.body;
+    const result = await exerciseRepository.createAndSave(exercise);
+    res.send(result);
+})
 
 /**
  * @openapi

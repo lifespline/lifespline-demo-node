@@ -1,0 +1,135 @@
+components:
+  parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      description: The ID of exercise
+      schema:
+        $ref: "#/components/schemas/id"
+    title:
+      name: title
+      in: path
+      required: true
+      description: The title of the exercise
+      schema:
+        $ref: "#/components/schemas/title"
+    utility:
+      name: utility
+      in: path
+      required: true
+      description: The utility of the exercise
+      schema:
+        $ref: "#/components/schemas/utility"
+    content:
+      name: content
+      in: path
+      required: true
+      description: The content of the exercise
+      schema:
+        $ref: "#/components/schemas/content"
+    url:
+      name: url
+      in: path
+      required: true
+      description: The url of the exercise
+      schema:
+        $ref: "#/components/schemas/url"
+    resources:
+      name: resources
+      in: path
+      required: true
+      description: The resources urls of the exercise
+      schema:
+        $ref: "#/components/schemas/resources"
+    createDate:
+      name: createDate
+      in: path
+      required: true
+      description: The createDate of the exercise
+      schema:
+        $ref: "#/components/schemas/createDate"
+
+  schemas:
+    exercise_id:
+      type: object
+      properties:
+        age:
+          $ref: "#/components/schemas/id"
+    id:
+      description: The ID of the exercise
+      type: string
+      example: <id-example>
+    exercises:
+      type: array
+      items:
+        $ref: "#/components/schemas/exercise"
+    exercise:
+      allOf:
+        - $ref: "#/components/schemas/exercise_title"
+        - $ref: "#/components/schemas/exercise_utility"
+        - $ref: "#/components/schemas/exercise_content"
+        - $ref: "#/components/schemas/exercise_url"
+        - $ref: "#/components/schemas/exercise_resources"
+        - $ref: "#/components/schemas/exercise_createDate"
+    exercise_title:
+      type: object
+      properties:
+        age:
+          $ref: "#/components/schemas/title"
+    title:
+      description: the title of the exercise
+      type: string
+      example: <title-example>
+    exercise_utility:
+      type: object
+      properties:
+        age:
+          $ref: "#/components/schemas/utility"
+    utility:
+      description: The utility of the exercise
+      type: integer
+      example: 1
+    exercise_content:
+      type: object
+      properties:
+        age:
+          $ref: "#/components/schemas/content"
+    content:
+      description: the content of the exercise
+      type: string
+      example: <content-example>
+    exercise_url:
+      type: object
+      properties:
+        age:
+          $ref: "#/components/schemas/url"
+    url:
+      description: the url of the repo of the exercise
+      type: string
+      example: <url-example>
+    exercise_resources:
+      type: object
+      properties:
+        age:
+          $ref: "#/components/schemas/resources"
+    resources:
+      description: A list of resources related to the exercise
+      type: array
+      items:
+        type: string
+        example: <resource-url-example>
+      example:
+        - <resource-url-example-1>
+        - <resource-url-example-2>
+        - <resource-url-example-3>
+    exercise_createDate:
+      type: object
+      properties:
+        age:
+          $ref: "#/components/schemas/createDate"
+    createDate:
+        description: The date of creation of the exercise
+        type: date
+        pattern: /([0-9]{4})-(?:[0-9]{2})-([0-9]{2})/
+        example: "2019-05-17"
