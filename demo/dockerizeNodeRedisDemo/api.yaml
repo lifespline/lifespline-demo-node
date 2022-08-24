@@ -54,7 +54,7 @@ components:
     exercise_id:
       type: object
       properties:
-        age:
+        exerciseId:
           $ref: "#/components/schemas/id"
     id:
       description: The ID of the exercise
@@ -75,7 +75,7 @@ components:
     exercise_title:
       type: object
       properties:
-        age:
+        exerciseTitle:
           $ref: "#/components/schemas/title"
     title:
       description: the title of the exercise
@@ -84,7 +84,7 @@ components:
     exercise_utility:
       type: object
       properties:
-        age:
+        exerciseUtility:
           $ref: "#/components/schemas/utility"
     utility:
       description: The utility of the exercise
@@ -93,7 +93,7 @@ components:
     exercise_content:
       type: object
       properties:
-        age:
+        exerciseContent:
           $ref: "#/components/schemas/content"
     content:
       description: the content of the exercise
@@ -102,7 +102,7 @@ components:
     exercise_url:
       type: object
       properties:
-        age:
+        exerciseUrl:
           $ref: "#/components/schemas/url"
     url:
       description: the url of the repo of the exercise
@@ -111,7 +111,7 @@ components:
     exercise_resources:
       type: object
       properties:
-        age:
+        exerciseResources:
           $ref: "#/components/schemas/resources"
     resources:
       description: A list of resources related to the exercise
@@ -126,7 +126,7 @@ components:
     exercise_createDate:
       type: object
       properties:
-        age:
+        exerciseCreateDate:
           $ref: "#/components/schemas/createDate"
     createDate:
         description: The date of creation of the exercise
