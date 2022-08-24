@@ -17,6 +17,7 @@ const swaggerOptions = {
     swaggerDefinition: {
         info: {
             title: "Dockerize Node Redis Demo",
+            version: "3.0.0",
             description: "Demo dockerizing a `nodejs` app with a `redis` database.",
             contact: {
                 name: "Diogo"
@@ -34,7 +35,7 @@ const swaggerOptions = {
             bearerAuth: []
         }]
     },
-    apis: ["app.js", "./routes/*.js"]
+    apis: ["app.js", "./routes/*.js", "api.yaml"]
 }
 const swaggerSpec = swaggerJsDoc(swaggerOptions)
 
