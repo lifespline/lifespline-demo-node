@@ -15,9 +15,10 @@ app.use(express.json());
 
 const swaggerOptions = {
     swaggerDefinition: {
+        openapi: "3.0.0",
         info: {
             title: "Dockerize Node Redis Demo",
-            version: "3.0.0",
+            version: "1.0.0",
             description: "Demo dockerizing a `nodejs` app with a `redis` database.",
             contact: {
                 name: "Diogo"
