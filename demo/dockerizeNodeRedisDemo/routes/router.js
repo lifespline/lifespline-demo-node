@@ -6,12 +6,15 @@ router.put('/', async (req, res) => {})
 
 /**
  * @openapi
- * /demo/:
+ * /demo:
  *  get:
  *    description: Returns an exercise
  *    summary: get exercise
  *    tags:
  *      - demo
+ *    responses:
+ *      '200':
+ *        description: exercise
  */
 router.get('/', async (req, res) => {
     res.send('test read');
