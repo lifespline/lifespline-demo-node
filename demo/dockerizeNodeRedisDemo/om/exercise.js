@@ -13,3 +13,6 @@ const exerciseSchema = new Schema(Exercise, {
 })
 
 export const exerciseRepository = client.fetchRepository(exerciseSchema)
+
+// create exercise index
+await exerciseRepository.createIndex()
